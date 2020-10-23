@@ -1,0 +1,20 @@
+import java.util.Scanner;
+
+public class greater {
+    //find gretest of three number
+    public static void main(String args[]) {
+        System.out.println("greatest number by deepak");
+        System.out.println("enter  three numbers");
+        int n = 3;
+        int greater =  Integer.MIN_VALUE;
+        while (n != 0)
+        {
+            Scanner sc = new Scanner(System.in);
+            int num = sc.nextInt();
+            if(num >greater) greater = num;
+            n--;
+        }
+
+        System.out.println("greatest of three number "+greater);
+    }
+}
