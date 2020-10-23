@@ -1,0 +1,49 @@
+import java.util.Scanner;
+
+public class experiment5{
+    //average of number
+    public static void main(String args[])
+    {
+   System.out.println("average number by deepak");
+   System.out.println("enter total number of subject");
+
+    Scanner sc = new Scanner(System.in);
+    int num = sc.nextInt();
+    float sum =0;
+    System.out.println("total marks of exam");
+    int total_marks = sc.nextInt();
+     System.out.println("enter marks of student ");
+
+    for(int i =0;i < num; i++){
+        int student = sc.nextInt();
+        sum +=student;
+
+    }
+    //average
+    System.out.println("average of student:  "+ sum/num);
+    //percentge
+        double percentage = (sum/(6*total_marks))*100;
+        System.out.println("% of student "+ percentage);
+        //grade
+        int k =(int) percentage/10;
+        switch (k){
+            case 10:
+            case 9:  System.out.println(" student Grade :  A");
+            break;
+
+            case 8:  System.out.println(" student Grade :  B");
+                break;
+            case 7:  System.out.println(" student Grade :  C");
+                break;
+            case 6:  System.out.println(" student Grade :  D");
+                break;
+            case 5:  System.out.println(" student Grade :  E");
+                break;
+            default:System.out.println(" student Grade :  E");
+                break;
+
+
+
+        }
+
+}}
