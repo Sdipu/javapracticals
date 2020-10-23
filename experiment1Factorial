@@ -1,0 +1,24 @@
+import java.util.Scanner;
+
+public class factorial {
+     public static void main(String[] args) {
+         //experiment -1// by deepak//factorial print
+         int fact =1;
+         System.out.println("experiment 1  factorial by deepak");
+         System.out.println("enter a number ");
+         Scanner  sc = new Scanner(System.in);
+         int num = sc.nextInt();
+         int i = num;
+         System.out.print("series of fact is ");
+         while(i>0){
+             fact = fact*i;
+             i--;
+             System.out.print(fact+" ");
+         }
+         System.out.println("the factorial of number is = "+fact);
+
+
+
+
+    }
+}
