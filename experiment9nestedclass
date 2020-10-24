@@ -1,0 +1,19 @@
+public class Outer {
+    private int b=5;
+    public class Inner
+    {
+        void show()
+        {
+            System.out.println("calling of inner class from outer class");
+            System.out.println("output is "+b);
+        }
+    }
+    public static void main(String args[])
+    {
+        Outer obj=new Outer();
+
+        System.out.println("Use of inner class by deepak");
+        Outer.Inner obj2= obj.new Inner();
+        obj2.show();
+    }
+}
