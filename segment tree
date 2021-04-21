@@ -1,0 +1,76 @@
+#include <iostream>
+using namespace std;
+void buildTree(int *a ,int s, int e,int *tree,int index){
+   if(s==e){
+       tree[index] = a[s];
+       return;
+   } 
+   
+   int mid = (s+e)/2;
+   
+   buildTree(a,s,mid,tree,2*index);
+   buildTree(a,mid+1,e,tree,2*index+1);
+   tree[index] = min(tree[2*index], tree[2*index+1]);
+   return ;
+   
+}
+
+ void buildsum(int *a,int *sumtree,int s,int e,int index){
+     
+     if(s==e){
+         sumtree[index] = a[s];
+         return;
+     }
+     int mid = (s+e)/2;
+     buildsum(a,sumtree,s,mid,2*index);
+     buildsum(a,sumtree,mid+1,e,2*index+1);
+     sumtree[index] = sumtree[2*index]+sumtree[2*index+1];
+      
+      return;
+      
+     
+     
+ }
+ 
+ void update(int* arr, int *tree, int s, int e, int treenode, int idx,int val ){
+     if(s==e){
+         tree[treenode] = val;
+         arr[idx] = val;
+         return;
+         
+     }
+     
+     int mid = (s+e)/2;
+     if(mid>idx)
+         update(arr, tree,s,mid, 2*treenode,idx,val );
+     else
+         update(arr, tree,mid+1,e, 2*treenode+1,idx,val );
+         
+         tree[treenode] = tree[2*treenode]+tree[2*treenode+1];
+         
+         return;
+     
+     
+ }
+
+
+int main() {
+int a[]	= {1,2,3,4,5,6,7,8,9};
+int n = sizeof(a)/sizeof(int);
+int *tree = new int[4*n+1];
+int *sumtree = new int[18];
+buildTree(a,0,n-1,tree,1);
+buildsum(a,sumtree,0,8,1);
+
+for(int i =1;i<=18;i++)
+cout<<tree[i]<<" ";
+cout<<endl;
+for(int i =1;i<18;i++)
+cout<<sumtree[i]<<" ";
+update(a,sumtree,0,8,1,2,10);
+cout<<endl;
+
+for(int i =1;i<18;i++)
+cout<<sumtree[i]<<" ";
+
+}
